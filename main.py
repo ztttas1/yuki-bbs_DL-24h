@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 import schedule
 import time
+import subprocess
 
 def clean_text(text):
     """HTMLタグやその他不要な文字列を除去する"""
@@ -25,7 +26,7 @@ def extract_name_message(url):
 
         if not os.path.exists(directory):
             os.makedirs(directory)
-
+            result = subprocess.run(['python', 'web.py'], capture_output=True, text=True)
         lines = []
 
         if 'contents' in data:
