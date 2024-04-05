@@ -51,7 +51,7 @@ def job():
     extract_name_message(url)
 
 # 10分ごとにjob関数を実行するようスケジュール
-schedule.every(10).minutes.do(job)
+schedule.every(5).minutes.do(job)
 
 while True:
     schedule.run_pending()
